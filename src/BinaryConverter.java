@@ -12,7 +12,8 @@ public class BinaryConverter implements MouseListener {
 JFrame frame = new JFrame();
 JPanel pan = new JPanel();
 JTextField text = new JTextField(20);
-JLabel lab = new JLabel("Convert 8 bits of binary to ASCII");
+JLabel lab = new JLabel();
+
 JButton button = new JButton("convert");
 	public static void main(String[] args) {
 	BinaryConverter bc = new BinaryConverter();
@@ -22,6 +23,7 @@ bc.converter();
 	private void converter() {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Convert 8 bits of binary to ASCII");
 		frame.add(pan);
 		pan.add(text);
 		pan.add(lab);
@@ -56,12 +58,15 @@ bc.converter();
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+			
 	}
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		convert(text.getText());
+		String s = convert(text.getText());
+		lab.setText(s);
+		frame.pack();
+		frame.repaint();
 	}
 	@Override
 	public void mouseReleased(MouseEvent e) {
